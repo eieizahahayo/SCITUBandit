@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SCITU Bandit</title>
+    {% load staticfiles %}
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link rel="stylesheet" type="text/css" href="{% static 'home/uikit.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'home/hamburger.css' %}" />
+    <script src="{% static 'home/uikit.min.js' %}"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="uk-position-relative">
+        <nav class="uk-navbar-container" uk-navbar="dropbar: true" style="background-color:#bb0404">
+            <div class="uk-navbar-left">
+
+                <a href="http://127.0.0.1:8000/home/">
+                    <img src="{% static 'home/pictures/a.png' %}" style="width:450px; margin: 10px;" />
+                </a>
+            </div>
+            <div class="uk-navbar-right">
+                <ul class="uk-navbar-nav">
+                    <li>
+                        <a href="http://127.0.0.1:8000/documents/">แบบคำร้อง/เอกสารบัณฑิต</a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/meeting/">รายงานการประชุมกรรมการบัณฑิต</a>
+                    </li>
+                    <li>
+                        <a href="http://127.0.0.1:8000/contact/">ติดต่อเรา</a>
+                    </li>
+                </ul>
+                <div class="dropdown">
+                    <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"></a>
+                    <div class="dropdown-content">
+                      <a href="http://127.0.0.1:8000/documents/">แบบคำร้อง/เอกสารบัณฑิต</a>
+                      <a href="http://127.0.0.1:8000/meeting/">รายงานการประชุมกรรมการบัณฑิต</a>
+                      <a href="http://127.0.0.1:8000/contact/">ติดต่อเรา</a>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+
+        <!-- <div class="uk-navbar-dropbar"></div> -->
+
+    </div>
+
+
+
+    <div style="margin-left:20px; margin-top:20px;">
+        <h2>
+            <span class=".uk-text-lead">ข่าวประชาสัมพันธ์ทั้งหมด
+            </span>
+        </h2>
+        <table class="uk-table uk-table-divider uk-table-hover">
+
+            <tbody>
+
+                {% for public in all_public %}
+                  <tr>
+                      <td style="width:20%">{{ public.date }}</td>
+                      <td>
+                          <a class=".uk-text-lead">{{ public.title }}</a>
+                      </td>
+                  </tr>
+
+                {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="uk-position-relative">
+        <nav class="uk-navbar-container" uk-navbar="dropbar: true" style="background-color:#bb0404; height:50px;">
+            <div class="uk-navbar-left">
+
+                <a href="demo.html" style="visibility:hidden">
+                    aaa
+                </a>
+            </div>
+
+        </nav>
+    </div>
+
+</body>
+
+</html>
