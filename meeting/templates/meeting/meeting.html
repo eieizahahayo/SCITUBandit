@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SCITU Bandit</title>
     {% load staticfiles %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <link rel="stylesheet" type="text/css" href="{% static 'home/uikit.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'home/hamburger.css' %}" />
     <script src="{% static 'home/uikit.min.js' %}"></script>
-    <script src="main.js"></script>
 </head>
-
 <body>
     <div class="uk-position-relative">
         <nav class="uk-navbar-container" uk-navbar="dropbar: true" style="background-color:#bb0404">
             <div class="uk-navbar-left">
-
                 <a href="http://127.0.0.1:8000/home/">
                     <img src="{% static 'home/pictures/a.png' %}" style="width:450px; margin: 10px;" />
                 </a>
@@ -45,12 +40,7 @@
                 </div>
             </div>
         </nav>
-
-        <!-- <div class="uk-navbar-dropbar"></div> -->
-
     </div>
-
-
     <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
         <div class="uk-card-media-left uk-cover-container" style="margin-left:15px; margin-right:10px;">
             <h2>
@@ -58,10 +48,8 @@
                     <p style="font-size:15px;">หมายเหตุ กำหนดการข้างต้นอาจมีการเปลี่ยนแปลง โดยจะแจ้งให้ทราบเป็นครั้งๆ ไป</p>
                 </span>
             </h2>
-
             <table class="uk-table uk-table-divider uk-table-hover" style="border:1px solid black; ">
                 <thead>
-
                     <tr>
                         <th>
                             <h4>เดือน</h4>
@@ -75,11 +63,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                  {% for meetinTable in all_meetingTable %}
+                  {% for meetingTable in all_meetingTable %}
                     <tr>
-                        <td style="width:20%;">{{ meetinTable.month }}</td>
-                        <td>{{meetinTable.date}}</td>
-                        <td>{{meetinTable.dueDate}}</td>
+                        <td style="width:20%;">{{ meetingTable.month }}</td>
+                        <td>{{meetingTable.date}}</td>
+                        <td>{{meetingTable.dueDate}}</td>
                     </tr>
                   {% endfor %}
                 </tbody>
@@ -90,11 +78,18 @@
                 รายงานการประชุมกรรมการบัณฑิต
             </p>
             <ul uk-accordion="multiple: true">
-                  <a class="uk-accordion-title" href="#">รายงานการประชุมปี 60</a>
-                  <div class="uk-accordion-content">
-                      <a>ครั้งที่1บลาๆ</a>
-                  </div>
-            </ul>
+              {% for year in year_report %}
+              <li>
+                <a class="uk-accordion-title" href="#">{{year.year}}</a>
+                <div class="uk-accordion-content">
+                {% for allReport in all_report %}
+                  {% if allReport.date.year == year.year %}
+                    <a>{{allReport.title}}</a><br>
+                  {% endif %}
+                {% endfor %}
+                </div>
+              </li>
+              {% endfor %}
         </div>
     </div>
     </div>

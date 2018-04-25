@@ -1,24 +1,19 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>SCITU Bandit</title>
     {% load staticfiles %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <link rel="stylesheet" type="text/css" href="{% static 'home/uikit.min.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'home/hamburger.css' %}" />
     <script src="{% static 'home/uikit.min.js' %}"></script>
-    <script src="main.js"></script>
 </head>
-
 <body>
     <div class="uk-position-relative">
         <nav class="uk-navbar-container" uk-navbar="dropbar: true" style="background-color:#bb0404">
             <div class="uk-navbar-left">
-
                 <a href="http://127.0.0.1:8000/home/">
                     <img src="{% static 'home/pictures/a.png' %}" style="width:450px; margin: 10px;" />
                 </a>
@@ -44,68 +39,65 @@
                     </div>
                 </div>
             </div>
-
         </nav>
-
-        <!-- <div class="uk-navbar-dropbar"></div> -->
-
     </div>
-
-
     <div style="margin-left:20px; margin-top:20px;">
-        <h2>
-            <span class=".uk-text-lead">แบบคำร้อง/เอกสารบัณฑิต</span>
-        </h2>
-        <table class="uk-table uk-table-middle uk-table-divider">
-            <tbody>
-              <tr>
+        <div class="uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+          <div>
+            <h2><span class=".uk-text-lead">แบบคำร้อง/เอกสารบัณฑิต</span></h2>
+            <table class="uk-table uk-table-middle uk-table-divider">
+                <tbody>
+                  <tr>
+                      <td>
+                        {% for document in all_document %}
+                          <a class=".uk-text-lead" href="http://127.0.0.1:8000/files/{{document.file}}" download> {{ document.title }}</a>
+                          {% if document.url %}
+                            <a class=".uk-text-lead" href="{{document.url}}"> &nbsp;(Online) </a>
+                          {% endif %}
+                          <br>
+                        {% endfor %}
+                      </td>
+                  </tr>
                   <td>
-                    {% for document in all_document %}
-                      <a class=".uk-text-lead"> {{ document.title }}</a>
-                      {% if document.url %}
-                        <a class=".uk-text-lead" href="{{ document.url }}"> &nbsp;(Online) </a>
-                      {% endif %}
-                      <br>
-                    {% endfor %}
                   </td>
-              </tr>
-              <td>
-              </td>
-
-
-            </tbody>
-        </table>
-            <h3 style="margin-top:0">รูปแบบการทำวิทยานิพนธ์ และขั้นตอน</h3>
-            {% for form in all_form %}
-              <a class=".uk-text-lead"> {{ form.title }}</a>
-              <br>
-            {% endfor %}
+                </tbody>
+            </table>
+          </div>
+          <div>
+            <h2><span class=".uk-text-lead">แบบฟอร์มภาษาอังกฤษ(สำหรับนักศึกษาต่างชาติ)</span></h2>
+            <table class="uk-table uk-table-middle uk-table-divider">
+                <tbody>
+                  <tr>
+                      <td>
+                        {% for EngDocument in all_EngDocument %}
+                          <a class=".uk-text-lead" href="http://127.0.0.1:8000/files/{{EngDocument.file}}" download> {{ EngDocument.title }}</a>
+                          {% if EngDocument.url %}
+                            <a class=".uk-text-lead" > &nbsp;(Online) </a>
+                          {% endif %}
+                          <br>
+                        {% endfor %}
+                      </td>
+                  </tr>
+                  <td>
+                  </td>
+                </tbody>
+            </table>
+          </div>
+        </div>
+        <h3 style="margin-top:0">รูปแบบการทำวิทยานิพนธ์ และขั้นตอน</h3>
+        {% for form in all_form %}
+          <a class=".uk-text-lead" href="/documents/{{ form.id }}/"> {{ form.title }}</a>
+          <br>
+        {% endfor %}
     </div>
-
-
-    <!-- bug here -->
-    <!-- <div class="uk-position-fixed" style="bottom: 0; width:100%">
-        <nav class="uk-navbar-container" uk-navbar="dropbar: true" style="background-color:#bb0404; height:50px;">
-            <div class="uk-navbar-left">
-
-                <a href="demo.html" style="visibility:hidden">
-                    aaa
-                </a>
-            </div>
-
-        </nav>
-    </div> -->
     <div class="uk-position-relative" style="margin-top:100px;">
         <nav class="uk-navbar-container" uk-navbar="dropbar: true" style="background-color:#bb0404; height:118px;">
             <div class="uk-navbar-left">
-
                 <a href="demo.html" style="visibility:hidden">
                     aaa
                 </a>
             </div>
-
         </nav>
     </div>
 </body>
-
 </html>

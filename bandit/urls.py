@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url,include
 
+from django.conf import settings
+from django.views.static import serve
+
 
 urlpatterns = [
     url('admin/', admin.site.urls),
@@ -27,3 +30,10 @@ urlpatterns = [
     url('news/', include('news.urls'))
 
 ]
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^files/(?P<path>.*)$',serve, {
+            'document_root' : settings.MEDIA_ROOT,
+        }),
+    ]

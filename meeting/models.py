@@ -9,4 +9,4 @@ class meetingTable(models.Model):
 class report(models.Model):
     title= models.CharField(max_length=200)
     file = models.FileField(blank=True)
-    date=models.DateField(null=True)
+    date=models.DateTimeField(null=True)
