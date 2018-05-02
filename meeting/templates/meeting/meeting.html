@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SCITU Bandit</title>
+    <title>SCITU</title>
     {% load staticfiles %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static 'home/uikit.min.css' %}" />
@@ -14,7 +14,7 @@
   <div class="uk-position-relative">
       <nav class="uk-navbar-container" uk-navbar="mode: click" style="background-color:#bb0404">
           <div class="uk-navbar-left">
-              <a href="http://127.0.0.1:8000/home/">
+              <a href="/home/">
                   <img src="{% static 'home/pictures/b.png' %}" style="width:300px; margin: 10px;" />
               </a>
           </div>
@@ -30,23 +30,23 @@
                       </div>
                   </li>
                   <li>
-                      <a href="http://127.0.0.1:8000/register/">การรับสมัคร</a>
+                      <a href="/register/">การรับสมัคร</a>
                   </li>
                   <li>
-                      <a href="http://127.0.0.1:8000/documents/">แบบคำร้อง/เอกสารบัณฑิต</a>
+                      <a href="/documents/">แบบคำร้อง/เอกสารบัณฑิต</a>
                   </li>
                   <li>
-                      <a href="http://127.0.0.1:8000/meeting/">รายงานการประชุมกรรมการบัณฑิต</a>
+                      <a href="/meeting/">รายงานการประชุมกรรมการบัณฑิต</a>
                   </li>
               </ul>
               <div class="dropdown">
                   <a class="uk-navbar-toggle" uk-navbar-toggle-icon href="#"></a>
                   <div class="dropdown-content">
-                    <a href="http://127.0.0.1:8000/register/">การรับสมัคร</a>
-                    <a href="http://127.0.0.1:8000/documents/">แบบคำร้อง/เอกสารบัณฑิต</a>
-                    <a href="http://127.0.0.1:8000/meeting/">รายงานการประชุมกรรมการบัณฑิต</a>
-                    <a href="#">- สำหรับนักศึกษา</a>
-                    <a href="#">- สำหรับเจ้าหน้าที่</a>
+                    <a href="/register/">การรับสมัคร</a>
+                    <a href="/documents/">แบบคำร้อง/เอกสารบัณฑิต</a>
+                    <a href="/meeting/">รายงานการประชุมกรรมการบัณฑิต</a>
+                    <a href="http://graduate.sci.tu.ac.th:10146/login">- สำหรับนักศึกษา</a>
+                    <a href="http://hrdb.sci.tu.ac.th:10146/login">- สำหรับเจ้าหน้าที่</a>
                   </div>
               </div>
           </div>
