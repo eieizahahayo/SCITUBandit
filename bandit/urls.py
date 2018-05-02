@@ -27,7 +27,8 @@ urlpatterns = [
     url('documents/', include('documents.urls')),
     url('meeting/', include('meeting.urls')),
     url('contact/', include('contact.urls')),
-    url('news/', include('news.urls'))
+    url('news/', include('news.urls')),
+    url('register/', include('register.urls'))
 
 ]
 

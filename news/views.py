@@ -11,11 +11,6 @@ def news_public(request):
     all_public = public.objects.all().order_by('-date')
     return render(request, 'news/news_public.html',{'all_public':all_public})
 
-
-
-
-
-
 def news_fund(request):
     all_fund = fund.objects.all().order_by('-date')
     return render(request, 'news/news_fund.html',{'all_fund':all_fund})

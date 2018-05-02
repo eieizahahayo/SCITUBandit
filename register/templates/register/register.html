@@ -54,16 +54,16 @@
   </div>
     <div style="margin-left:20px; margin-top:20px;">
         <h2>
-            <span class=".uk-text-lead">ข่าวประชาสัมพันธ์ทั้งหมด
+            <span class=".uk-text-lead">การรับสมัคร
             </span>
         </h2>
         <table class="uk-table uk-table-divider uk-table-hover">
             <tbody>
-                {% for public in all_public %}
+                {% for reg in all_reg %}
                   <tr>
-                      <td style="width:20%">{{ public.date }}</td>
+                      <td style="width:20%">{{ reg.date }}</td>
                       <td>
-                          <a class=".uk-text-lead" href="/news/public/{{ public.id }}/">{{ public.title }}</a>
+                          <a class=".uk-text-lead" href="/register/{{ reg.id }}/">{{ reg.title }}</a>
                       </td>
                   </tr>
                 {% endfor %}

@@ -53,20 +53,17 @@
       </nav>
   </div>
     <div style="margin-left:20px; margin-top:20px;">
-        <h2>
-            <span class=".uk-text-lead">ข่าวประชาสัมพันธ์ทั้งหมด
-            </span>
-        </h2>
+        <h3>{{reg.title}}</h3>
         <table class="uk-table uk-table-divider uk-table-hover">
             <tbody>
-                {% for public in all_public %}
                   <tr>
-                      <td style="width:20%">{{ public.date }}</td>
-                      <td>
-                          <a class=".uk-text-lead" href="/news/public/{{ public.id }}/">{{ public.title }}</a>
-                      </td>
+                      <td style="width:20%;">{{ reg.content|linebreaks }}</td>
                   </tr>
-                {% endfor %}
+                  {% if reg.file %}
+                  <tr>
+                      <td style="width:20%;">Download : <a href="http://127.0.0.1:8000/files/{{reg.file}}" download> {{ reg.file }} </a></td>
+                  </tr>
+                  {% endif %}
             </tbody>
         </table>
     </div>

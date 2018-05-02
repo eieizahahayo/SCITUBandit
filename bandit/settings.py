@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'register.apps.RegisterConfig',
     'news.apps.NewsConfig',
     'home.apps.HomeConfig',
     'documents.apps.DocumentsConfig',
