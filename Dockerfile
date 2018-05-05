@@ -1,4 +1,7 @@
 FROM python:3
-RUN mkdir /code
+ENV PYTHONUNBUFFERED 1
+ADD . /code
 WORKDIR /code
-CMD python3 manage.py runserver
+RUN pwd
+RUN ls -a /code
+RUN pip install -r requirements.txt

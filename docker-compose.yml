@@ -1,9 +1,0 @@
-version: '11'
-services:
-  web:
-    build: .
-    command: python3 manage.py runserver
-    volumes:
-      - ./ : /code
-    ports:
-      - 1112:8000
